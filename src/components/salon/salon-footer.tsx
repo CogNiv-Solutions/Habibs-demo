@@ -1,7 +1,7 @@
 import type { SVGProps } from "react";
 import { ArrowRight, MessageCircle, Scissors } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { SALON_WHATSAPP_HREF } from "./salon-navbar";
+import { SALON_WHATSAPP_HREF } from "@/lib/salon";
 
 function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -42,7 +42,7 @@ const legalLinks = [
 
 export function SalonFinalCta() {
   return (
-    <section aria-labelledby="salon-final-cta-heading" className="bg-white">
+    <section aria-labelledby="salon-final-cta-heading" className="bg-blush">
       <div className="mx-auto max-w-7xl px-4 pb-14 md:px-8 md:pb-20">
         <Reveal>
           <div className="relative overflow-hidden rounded-[28px] bg-[#a51c30] px-6 py-12 text-center text-white md:py-16">
@@ -82,7 +82,7 @@ export function SalonFinalCta() {
 
 export function SalonFooter() {
   return (
-    <footer className="border-t border-[#1c1917]/10 bg-white text-[#1c1917]">
+    <footer className="border-t border-[#1c1917]/10 bg-blush text-[#1c1917]">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-14">
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>

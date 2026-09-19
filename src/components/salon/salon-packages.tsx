@@ -22,7 +22,7 @@ const packages = [
 
 export function SalonPackages() {
   return (
-    <section aria-labelledby="salon-packages-heading" className="bg-white">
+    <section aria-labelledby="salon-packages-heading" className="bg-blush">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#a51c30]">

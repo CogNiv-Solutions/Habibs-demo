@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import { SALON_WHATSAPP_HREF } from "./salon-navbar";
+import { SALON_WHATSAPP_HREF } from "@/lib/salon";
 
 const ease = [0.32, 0.72, 0, 1] as const;
 
@@ -11,7 +11,7 @@ export function SalonHero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="home" aria-labelledby="salon-hero-heading" className="relative overflow-hidden bg-white pt-[76px]">
+    <section id="home" aria-labelledby="salon-hero-heading" className="relative overflow-hidden bg-blush pt-[76px]">
       {/* Subtle red editorial linework */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -right-10 top-16 hidden select-none font-serif text-[11rem] leading-none text-[#a51c30]/[0.06] lg:block">
@@ -88,7 +88,7 @@ export function SalonHero() {
             transition={{ duration: 0.6, delay: 0.34 }}
             className="mt-5 text-[12.5px] leading-relaxed text-[#1c1917]/60"
           >
-            Demo preview — timings, prices and phone numbers shown here are placeholders to be replaced with the
+            Demo preview — timings and prices are placeholders; phone and address are the
             salon&rsquo;s real details.
           </motion.p>
         </div>

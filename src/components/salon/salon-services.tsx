@@ -1,9 +1,10 @@
 import { Hand, Palette, Scissors, Smile, Sparkles, type LucideIcon } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
+import { salonWhatsAppHref } from "@/lib/salon";
+
 export function salonEnquireHref(service: string) {
-  const text = `Hi Habib's Hair & Beauty Salon, I'd like to enquire about ${service}.`;
-  return `https://wa.me/910000000000?text=${encodeURIComponent(text)}`;
+  return salonWhatsAppHref(`Hi Habib's Hair & Beauty Salon, I'd like to enquire about ${service}.`);
 }
 
 type ServiceItem = { name: string; desc: string };

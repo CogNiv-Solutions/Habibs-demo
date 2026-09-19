@@ -1,17 +1,19 @@
 import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import {
+  SALON_ADDRESS_LINES,
   SALON_EMAIL_DISPLAY,
+  SALON_MAP_EMBED_SRC,
   SALON_PHONE_DISPLAY,
   SALON_PHONE_HREF,
   SALON_WHATSAPP_HREF,
-} from "./salon-navbar";
+} from "@/lib/salon";
 
 const cards = [
   {
     icon: MapPin,
     title: "Address",
-    lines: ["Shop No. __, Street __", "Pune, Maharashtra — to be confirmed"],
+    lines: [...SALON_ADDRESS_LINES],
     action: null as null | { label: string; href: string },
   },
   {
@@ -36,7 +38,7 @@ const cards = [
 
 export function SalonVisit() {
   return (
-    <section id="visit" aria-labelledby="salon-visit-heading" className="scroll-mt-20 bg-white">
+    <section id="visit" aria-labelledby="salon-visit-heading" className="scroll-mt-20 bg-blush">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
         <Reveal className="max-w-2xl">
           <p className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#a51c30]">
@@ -55,18 +57,15 @@ export function SalonVisit() {
         </Reveal>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-          {/* Map preview */}
+          {/* Map */}
           <Reveal className="relative min-h-[320px] overflow-hidden rounded-[24px] border border-[#1c1917]/10 bg-[#faf7f2] lg:min-h-full">
             <iframe
-              title="Map preview of Pune — exact salon location to be added"
-              src="https://www.google.com/maps?q=Pune,Maharashtra,India&z=11&output=embed"
+              title="Map showing the salon location at Porwal Road, Lohegaon, Pune"
+              src={SALON_MAP_EMBED_SRC}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0 h-full w-full border-0 grayscale transition-[filter] duration-500 hover:grayscale-0"
             />
-            <p className="absolute bottom-3 left-3 rounded-full bg-white/95 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#1c1917]/60 shadow">
-              Map preview — exact pin to be added
-            </p>
           </Reveal>
 
           {/* Cards */}
@@ -117,8 +116,7 @@ export function SalonVisit() {
 
         <Reveal>
           <p className="mx-auto mt-8 max-w-[70ch] text-center text-[12.5px] leading-relaxed text-[#1c1917]/60">
-            All address, contact and timing details are placeholders — the exact branch information must be
-            confirmed with the client before production.
+            Opening hours and email are still to be confirmed with the salon.
           </p>
         </Reveal>
       </div>

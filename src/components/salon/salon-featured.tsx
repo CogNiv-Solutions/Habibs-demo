@@ -26,7 +26,7 @@ const featured = [
 
 export function SalonFeatured() {
   return (
-    <section aria-labelledby="salon-featured-heading" className="bg-white">
+    <section aria-labelledby="salon-featured-heading" className="bg-blush">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div>

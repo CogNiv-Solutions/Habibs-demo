@@ -7,7 +7,7 @@ import {
   SALON_PHONE_DISPLAY,
   SALON_PHONE_HREF,
   SALON_WHATSAPP_HREF,
-} from "./salon-navbar";
+} from "@/lib/salon";
 import { serviceCategories } from "./salon-services";
 
 type AppointmentPayload = {
@@ -105,7 +105,7 @@ export function SalonAppointment() {
           <dl className="mt-8 space-y-3 border-t border-white/10 pt-6 text-[14.5px]">
             <div className="flex gap-3">
               <dt className="w-20 shrink-0 font-semibold uppercase tracking-[0.1em] text-white/55 text-[12px] pt-0.5">Visit</dt>
-              <dd className="text-white/75">Salon address to be added here.</dd>
+              <dd className="text-white/75">Shop No. 12, JD Gaatha, Porwal Road, Lohegaon, Pune 411047.</dd>
             </div>
             <div className="flex gap-3">
               <dt className="w-20 shrink-0 font-semibold uppercase tracking-[0.1em] text-white/55 text-[12px] pt-0.5">Hours</dt>

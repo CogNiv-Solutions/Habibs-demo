@@ -4,13 +4,14 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --color-cream: #fdfbf7;
+  --color-blush: #f9e6eb;
   --color-salon: #a51c30;
   --color-salon-deep: #7f1424;
   --color-charcoal: #1c1917;
 }
 
 :root {
-  --background: #ffffff;
+  --background: #f9e6eb;
   --foreground: #1c1917;
   color-scheme: light;
 }

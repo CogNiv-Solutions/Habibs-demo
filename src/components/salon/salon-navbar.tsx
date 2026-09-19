@@ -14,11 +14,7 @@ export const salonLinks = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
-// Replace with the real salon details before launch. All values below are placeholders.
-export const SALON_PHONE_DISPLAY = "+91 00000 00000";
-export const SALON_PHONE_HREF = "tel:+910000000000";
-export const SALON_WHATSAPP_HREF = "https://wa.me/910000000000?text=Hi%20Habib%27s%20Hair%20%26%20Beauty%20Salon%2C%20I%27d%20like%20to%20book%20an%20appointment.";
-export const SALON_EMAIL_DISPLAY = "hello@habibssalon.example";
+import { SALON_PHONE_HREF, SALON_WHATSAPP_HREF } from "@/lib/salon";
 
 export function SalonNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,7 +56,7 @@ export function SalonNavbar() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 bg-white/95 backdrop-blur-md transition-all duration-300",
+          "fixed inset-x-0 top-0 z-40 bg-blush/95 backdrop-blur-md transition-all duration-300",
           scrolled ? "border-b border-[#1c1917]/10 shadow-[0_8px_30px_-18px_rgb(28_25_23/0.35)]" : "border-b border-transparent"
         )}
       >
@@ -137,7 +133,7 @@ export function SalonNavbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-30 bg-white lg:hidden"
+            className="fixed inset-0 z-30 bg-blush lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Salon menu"
@@ -195,7 +191,6 @@ export function SalonNavbar() {
                     <Phone className="h-4 w-4" aria-hidden /> Call
                   </a>
                 </div>
-                <p className="text-center text-[12px] text-[#1c1917]/60">Demo preview — phone number is a placeholder.</p>
               </motion.div>
             </div>
           </motion.div>

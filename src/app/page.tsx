@@ -12,10 +12,11 @@ import { SalonAppointment } from "@/components/salon/salon-appointment";
 import { SalonVisit } from "@/components/salon/salon-visit";
 import { SalonFinalCta, SalonFooter } from "@/components/salon/salon-footer";
 import { SalonMobileCta } from "@/components/salon/salon-mobile-cta";
+import { SalonWhatsAppFloat } from "@/components/salon/salon-whatsapp-float";
 
 export default function Home() {
   return (
-    <div className="min-h-full bg-white text-[#1c1917]">
+    <div className="min-h-full bg-blush text-[#1c1917]">
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -36,6 +37,7 @@ export default function Home() {
         <SalonFooter />
       </main>
       <SalonMobileCta />
+      <SalonWhatsAppFloat />
     </div>
   );
 }

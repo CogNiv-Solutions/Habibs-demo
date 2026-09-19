@@ -141,7 +141,7 @@ export function SalonGallery() {
   const current = openIndex !== null ? visible[openIndex] : null;
 
   return (
-    <section id="gallery" aria-labelledby="salon-gallery-heading" className="scroll-mt-20 border-t border-[#1c1917]/8 bg-white">
+    <section id="gallery" aria-labelledby="salon-gallery-heading" className="scroll-mt-20 border-t border-[#1c1917]/8 bg-blush">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#a51c30]">

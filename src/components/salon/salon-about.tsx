@@ -4,7 +4,7 @@ import { Reveal } from "@/components/reveal";
 
 export function SalonAbout() {
   return (
-    <section id="about" aria-labelledby="salon-about-heading" className="scroll-mt-20 bg-white">
+    <section id="about" aria-labelledby="salon-about-heading" className="scroll-mt-20 bg-blush">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 md:px-8 md:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
         {/* Image */}
         <Reveal className="relative">
