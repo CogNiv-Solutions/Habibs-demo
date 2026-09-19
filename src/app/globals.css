@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-cream: #fdfbf7;
+  --color-salon: #a51c30;
+  --color-salon-deep: #7f1424;
+  --color-charcoal: #1c1917;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1c1917;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #a51c30;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #a51c30;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #a51c30;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 12px 0;
+  font-size: 0.875rem;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+.btn-press {
+  transition: transform 0.25s cubic-bezier(0.32, 0.72, 0, 1), background-color 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.btn-press:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
