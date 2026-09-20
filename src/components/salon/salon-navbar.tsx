@@ -4,17 +4,15 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, MessageCircle, Phone, Scissors, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SALON_PHONE_HREF, SALON_WHATSAPP_HREF } from "@/lib/salon";
 
 export const salonLinks = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
 ] as const;
-
-import { SALON_PHONE_HREF, SALON_WHATSAPP_HREF } from "@/lib/salon";
 
 export function SalonNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,12 +54,12 @@ export function SalonNavbar() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 bg-blush/95 backdrop-blur-md transition-all duration-300",
+          "fixed inset-x-0 top-0 z-40 bg-white/95 backdrop-blur-md transition-all duration-300",
           scrolled ? "border-b border-[#1c1917]/10 shadow-[0_8px_30px_-18px_rgb(28_25_23/0.35)]" : "border-b border-transparent"
         )}
       >
         <nav
-          aria-label="Salon demo primary"
+          aria-label="Salon primary"
           className={cn(
             "mx-auto flex max-w-7xl items-center justify-between px-4 transition-all duration-300 md:px-8",
             scrolled ? "h-[60px]" : "h-[76px]"
@@ -96,16 +94,7 @@ export function SalonNavbar() {
             ))}
           </ul>
 
-          <div className="hidden items-center gap-2 lg:flex">
-            <a
-              href={SALON_WHATSAPP_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-press inline-flex min-h-[44px] items-center gap-2 rounded-full border border-[#1c1917]/15 bg-white px-4 text-[14px] font-semibold text-[#1c1917] hover:border-[#a51c30]/40 hover:text-[#a51c30]"
-            >
-              <MessageCircle className="h-4 w-4" aria-hidden />
-              WhatsApp
-            </a>
+          <div className="hidden lg:block">
             <a
               href="#contact"
               className="btn-press inline-flex min-h-[44px] items-center rounded-full bg-[#a51c30] px-6 text-[14px] font-semibold uppercase tracking-[0.08em] text-white hover:bg-[#7f1424]"
@@ -133,7 +122,7 @@ export function SalonNavbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-30 bg-blush lg:hidden"
+            className="fixed inset-0 z-30 bg-white lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Salon menu"
@@ -165,7 +154,7 @@ export function SalonNavbar() {
               <motion.div
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.38, duration: 0.4 }}
+                transition={{ delay: 0.34, duration: 0.4 }}
                 className="mt-6 grid gap-3"
               >
                 <a

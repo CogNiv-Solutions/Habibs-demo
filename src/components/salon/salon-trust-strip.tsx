@@ -4,7 +4,7 @@ const items = ["Hair", "Beauty", "Grooming", "Personal Care"] as const;
 
 export function SalonTrustStrip() {
   return (
-    <section aria-label="Salon focus areas" className="border-y border-[#1c1917]/10 bg-[#fdfbf7]">
+    <section aria-label="Salon focus areas" className="border-y border-[#1c1917]/10 bg-blush">
       <Reveal y={14}>
         <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-4 py-5 md:justify-between md:px-8">
           {items.map((item, i) => (

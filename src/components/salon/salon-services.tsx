@@ -1,141 +1,106 @@
-import { Hand, Palette, Scissors, Smile, Sparkles, type LucideIcon } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-
 import { salonWhatsAppHref } from "@/lib/salon";
 
 export function salonEnquireHref(service: string) {
   return salonWhatsAppHref(`Hi Habib's Hair & Beauty Salon, I'd like to enquire about ${service}.`);
 }
 
-type ServiceItem = { name: string; desc: string };
-export type ServiceCategory = { id: string; name: string; icon: LucideIcon; services: ServiceItem[] };
-
-export const serviceCategories: ServiceCategory[] = [
+const cards = [
   {
-    id: "hair",
-    name: "Hair",
-    icon: Scissors,
-    services: [
-      { name: "Haircut & Styling", desc: "Precision cuts and styling shaped around your face and routine." },
-      { name: "Hair Color", desc: "Global colour, touch-ups and gloss looks matched to your tone." },
-      { name: "Hair Spa", desc: "Deep-conditioning spa ritual for softer, shinier hair." },
-      { name: "Hair Treatment", desc: "Targeted care for frizz, dryness and damage, planned on visit." },
-      { name: "Hair Straightening", desc: "Smooth, straight finishes — suitability confirmed in consultation." },
-      { name: "Hair Streaking", desc: "Highlights and streaks placed to add depth and dimension." },
-    ],
+    name: "Hair Styling",
+    desc: "Precision cuts, blowouts and everyday styling.",
+    src: "/salon/featured-styling.jpg",
+    alt: "Stylist blow-drying and finishing a client's hair",
   },
   {
-    id: "beauty-skin",
-    name: "Beauty & Skin",
-    icon: Sparkles,
-    services: [
-      { name: "Facial", desc: "Clean-up and facial rituals for a fresh, rested glow." },
-      { name: "Skin Treatments", desc: "Routine skin care for everyday brightness and texture." },
-      { name: "Anti-Acne Treatments", desc: "Guided care for acne-prone skin, planned on consultation." },
-      { name: "Chemical Peel", desc: "Exfoliating peel treatments — suitability confirmed in consultation." },
-    ],
+    name: "Hair Colour",
+    desc: "Global colour, touch-ups and dimensional streaks.",
+    src: "/salon/gallery-hair-1.jpg",
+    alt: "Long wavy hair with soft lavender colour",
   },
   {
-    id: "grooming",
-    name: "Grooming",
-    icon: Smile,
-    services: [
-      { name: "Shaving", desc: "Clean, comfortable shaving with a neat finish." },
-      { name: "Beard Grooming", desc: "Beard shaping, trimming and tidy-up." },
-    ],
+    name: "Hair Treatments",
+    desc: "Spa, repair and smoothing rituals for healthy hair.",
+    src: "/salon/featured-treatment.jpg",
+    alt: "Relaxing head and hair spa treatment",
   },
   {
-    id: "makeup",
+    name: "Skin & Beauty",
+    desc: "Facials, clean-ups and glow rituals.",
+    src: "/salon/featured-skin.jpg",
+    alt: "Facial skin-care treatment being applied",
+  },
+  {
     name: "Makeup",
-    icon: Palette,
-    services: [
-      { name: "Basic Makeup", desc: "Simple, natural makeup for everyday occasions." },
-      { name: "Occasion / Party Makeup", desc: "Party-ready looks for events and celebrations." },
-    ],
+    desc: "Natural everyday looks to party-ready glam.",
+    src: "/salon/gallery-beauty-1.jpg",
+    alt: "Makeup being applied for an evening look",
   },
   {
-    id: "nails",
-    name: "Nails",
-    icon: Hand,
-    services: [{ name: "Manicure", desc: "Nail shaping, cuticle care and polish." }],
+    name: "Grooming",
+    desc: "Classic cuts, shaving and beard detailing.",
+    src: "/salon/gallery-grooming-1.jpg",
+    alt: "Barber giving a classic clipper haircut",
   },
-];
+] as const;
 
 export function SalonServices() {
   return (
-    <section id="services" aria-labelledby="salon-services-heading" className="scroll-mt-20 bg-[#fdfbf7]">
+    <section id="services" aria-labelledby="salon-services-heading" className="scroll-mt-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
-        <Reveal className="max-w-2xl">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#a51c30]">
             <span aria-hidden className="h-px w-8 bg-[#a51c30]" />
             Services
+            <span aria-hidden className="h-px w-8 bg-[#a51c30]" />
           </p>
           <h2
             id="salon-services-heading"
             className="mt-4 text-4xl font-bold tracking-tight text-[#1c1917] md:text-5xl"
           >
-            OUR SERVICES
+            CARE FOR EVERY LOOK
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[#1c1917]/65 md:text-lg">
-            Professional care for every style, occasion and routine.
+            Six essentials, done well — for routine days and big occasions.
           </p>
         </Reveal>
 
-        <div className="mt-10 space-y-12 md:mt-14 md:space-y-16">
-          {serviceCategories.map((cat) => (
-            <div key={cat.id}>
-              <Reveal>
-                <div className="flex items-center gap-4">
-                  <span aria-hidden className="grid h-11 w-11 place-items-center rounded-full bg-[#a51c30] text-white">
-                    <cat.icon className="h-5 w-5" />
+        <Stagger className="mt-10 grid gap-5 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
+          {cards.map((s) => (
+            <StaggerItem key={s.name}>
+              <article className="group h-full overflow-hidden rounded-[22px] border border-[#1c1917]/10 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#a51c30]/35 hover:shadow-[0_24px_50px_-28px_rgb(165_28_48/0.45)]">
+                <span className="relative block aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+                    loading="lazy"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                  />
+                </span>
+                <span className="block p-6">
+                  <span className="flex items-start justify-between gap-3">
+                    <h3 className="text-[19px] font-bold tracking-tight text-[#1c1917]">{s.name}</h3>
+                    <span aria-hidden className="mt-1 h-[3px] w-8 shrink-0 rounded-full bg-[#a51c30]/25 transition-all duration-300 group-hover:w-12 group-hover:bg-[#a51c30]" />
                   </span>
-                  <h3 className="text-xl font-bold uppercase tracking-[0.08em] text-[#1c1917] md:text-2xl">
-                    {cat.name}
-                  </h3>
-                  <span aria-hidden className="h-px flex-1 bg-[#1c1917]/10" />
-                  <span className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-[#1c1917]/40 sm:inline">
-                    {cat.services.length} {cat.services.length === 1 ? "service" : "services"}
-                  </span>
-                </div>
-              </Reveal>
-
-              <Stagger className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {cat.services.map((s) => (
-                  <StaggerItem key={s.name}>
-                    <article className="group flex h-full flex-col rounded-[20px] border border-[#1c1917]/10 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#a51c30]/40 hover:shadow-[0_20px_44px_-24px_rgb(165_28_48/0.4)]">
-                      <div className="flex items-center justify-between gap-3">
-                        <span aria-hidden className="grid h-9 w-9 place-items-center rounded-full bg-[#a51c30]/10 text-[#a51c30] transition-colors duration-300 group-hover:bg-[#a51c30] group-hover:text-white">
-                          <cat.icon className="h-4 w-4" />
-                        </span>
-                        <span className="rounded-full border border-[#1c1917]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#1c1917]/50">
-                          Price on enquiry
-                        </span>
-                      </div>
-                      <h4 className="mt-4 text-[17px] font-semibold tracking-tight text-[#1c1917]">{s.name}</h4>
-                      <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-[#1c1917]/60">{s.desc}</p>
-                      <a
-                        href={salonEnquireHref(s.name)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Enquire about ${s.name} on WhatsApp`}
-                        className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-full border border-[#a51c30]/30 text-[13px] font-semibold uppercase tracking-[0.1em] text-[#a51c30] transition-colors hover:bg-[#a51c30] hover:text-white"
-                      >
-                        Enquire / Book
-                      </a>
-                    </article>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
+                  <span className="mt-1.5 block text-[14.5px] leading-relaxed text-[#1c1917]/60">{s.desc}</span>
+                  <a
+                    href={salonEnquireHref(s.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Enquire about ${s.name} on WhatsApp`}
+                    className="mt-4 inline-flex min-h-[44px] items-center gap-1 text-[13px] font-semibold uppercase tracking-[0.1em] text-[#a51c30] hover:text-[#7f1424]"
+                  >
+                    Enquire <ArrowUpRight className="h-4 w-4" aria-hidden />
+                  </a>
+                </span>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
-
-        <Reveal>
-          <p className="mt-12 border-t border-[#1c1917]/10 pt-6 text-[12.5px] leading-relaxed text-[#1c1917]/60">
-            Demo service list based on publicly available listings for similarly named salons — exact services
-            and prices must be confirmed with the client before launch. No prices are shown in this demo.
-          </p>
-        </Reveal>
+        </Stagger>
       </div>
     </section>
   );

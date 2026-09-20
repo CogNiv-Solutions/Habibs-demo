@@ -27,3 +27,12 @@ export const SALON_MAP_QUERY = "JD Gaatha, Porwal Road, Lohegaon, Pune 411047";
 export const SALON_MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(
   SALON_MAP_QUERY
 )}&z=16&output=embed`;
+
+export const salonServiceNames = [
+  "Hair Styling",
+  "Hair Colour",
+  "Hair Treatments",
+  "Skin & Beauty",
+  "Makeup",
+  "Grooming",
+] as const;
